@@ -9,7 +9,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ListView;
 import android.widget.SearchView;
-import android.widget.SimpleCursorAdapter;
 
 public class NoteSearch extends ListActivity  implements SearchView.OnQueryTextListener  {
     private static final String[] PROJECTION = new String[] {
@@ -17,7 +16,7 @@ public class NoteSearch extends ListActivity  implements SearchView.OnQueryTextL
             NotePad.Notes.COLUMN_NAME_TITLE, // 1
             //扩展 显示时间 颜色
             NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, // 2
-//            NotePad.Notes.COLUMN_NAME_BACK_COLOR,
+            NotePad.Notes.COLUMN_NAME_BACK_COLOR,
     };
 
 
@@ -51,7 +50,7 @@ public class NoteSearch extends ListActivity  implements SearchView.OnQueryTextL
                 selectionArgs,                    // 条件右边
                 NotePad.Notes.DEFAULT_SORT_ORDER  // Use the default sort order.
         );
-        String[] dataColumns = { NotePad.Notes.COLUMN_NAME_TITLE ,  NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE };
+        String[] dataColumns = {NotePad.Notes.COLUMN_NAME_TITLE, NotePad.Notes.COLUMN_NAME_MODIFICATION_DATE, NotePad.Notes.COLUMN_NAME_BACK_COLOR};
         int[] viewIDs = { android.R.id.text1 , R.id.text1_time };
         ListAdapter adapter
                 = new ListAdapter(
